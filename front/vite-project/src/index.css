@@ -28,11 +28,11 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: auto;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.0em;
   line-height: 1.1;
 }
 
@@ -85,3 +85,4 @@ input {
   flex-direction: column;
   gap: 20px;
  }
+

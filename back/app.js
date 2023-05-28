@@ -20,7 +20,7 @@ app.get('/orders', (req, res) => {
     db.query(q,(err,data) =>{
         if(err)
         return err
-        res.send('Waka-waka e e ')
+        res.send(data)
     })
 } )
 
@@ -29,7 +29,7 @@ app.get('/suggestions', (req, res) => {
     db.query(q,(err,data) =>{
         if(err)
         return err
-        res.send('Wherever whenever ')
+        res.send(data)
     })
 } )
 
