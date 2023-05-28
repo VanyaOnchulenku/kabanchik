@@ -34,6 +34,29 @@ app.get('/suggestions', (req, res) => {
 } )
 
 
+app.post('/create', (req, res) => {
+    const order = req.body
+    const q = 'INSERT INTO orders (`title`, `desc`, `need`, `price`) VALUES (?) '
+    const values = [order.title, order.desc, order.need, order.price]
+    db.query(q, [values], (err, data) => {
+        if (err)
+        return res.send(err)
+        res.send('Order created')
+    })
+} )
+
+app.post('/add', (req, res) => {
+    const sug = req.body
+    const q = 'INSERT INTO suggestions (`title`, `desc`, `need`, `price`) VALUES (?)'
+    const values = [sug.title, sug.desc, sug.need, sug.price]
+    db.query(q, [values], (err, data) => {
+        if (err)
+        return res.send(err)
+        res.send('Suggestion added')
+    })
+})
+
+
 
 
 
