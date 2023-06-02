@@ -29,11 +29,12 @@ export default function Orders() {
     <button> <Link to ='/'> Home </Link> </button>
         <h1>Welcome, here you can see list of all orders</h1>
         <div> {orders.map(order => ( 
-            <div className = 'list' key = {order.id}>
+            <div className = 'list' key = {order.orderID}>
                 <ul>
                 <h2>{order.title}</h2>
                 <li>{order.desc}</li>
                 <li>{order.need}</li>
+                <li>{order.userID}</li>
                 <span>Price: {order.price}$</span> 
                 </ul>
                 <br />

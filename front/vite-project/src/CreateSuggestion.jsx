@@ -41,6 +41,7 @@ export default function CreateSuggestion() {
         <input type="text" placeholder='Desc' name='desc' onChange={handleChange} />
         <input type="text" placeholder='Requierments' name='need' onChange={handleChange} />
         <input type="number" placeholder='Price' name='price' onChange={handleChange} />
+        <input type="number" placeholder='userID' name='userID' onChange={handleChange} />
         <button onClick={sendSug}> <Link to = '/suggestions'> Post suggestion  </Link> </button>
     </div>
   )
