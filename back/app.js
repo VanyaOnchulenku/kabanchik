@@ -189,6 +189,47 @@ app.get('/customers/response', (req, res) => {
     })
 })
 
+app.put('/accept/bid/:id', (req, res) => {
+    const bidID = req.params.id
+    const q = 'UPDATE bids SET status = "accept" WHERE bidID = ?'
+    db.query(q, bidID, (err, data) => {
+        if(err)
+        return err
+        res.send('Bid accepted')
+    })
+
+})
+
+app.put('/reject/bid/:id', (req, res) => {
+    const bidID = req.params.id
+    const q = 'UPDATE bids SET status = "reject" WHERE bidID = ?'
+    db.query(q, bidID, (err, data) => {
+        if(err)
+        return err
+        res.send('Bid rejected')
+    })
+})
+
+app.get('/accepted/bids/:id', (req, res) => {
+    const userID = req.params.id
+    const q = 'SELECT * FROM bids WHERE userID = ? AND status = "accept"'
+    db.query(q, userID, (err, data) => {
+        if(err)
+        return err
+        res.send(data)
+    })
+})
+
+app.get('/rejected/bids/:id', (req, res) => {
+    const userID = req.params.id
+    const q = 'SELECT * FROM bids WHERE userID = ? AND status = "reject"'
+    db.query(q, userID, (err, data) => {
+        if(err)
+        return err
+        res.send(data)
+    })
+})
+
 
 
 app.listen(3000, () => {
